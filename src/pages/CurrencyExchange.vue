@@ -95,7 +95,6 @@ export default {
         this.trackObj.exchangeInfo = JSON.parse(await fetch("https://api.apilayer.com/exchangerates_data/fluctuation?start_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()}-${rightNow.getDate()}`+"&end_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()+1}-${rightNow.getDate()}`+"&base="+`${evt.from}`, requestOptions)
         .then(response => response.text()))
         this.expand=true;
-        console.log(this.trackObj.exchangeInfo, this.trackObj)
       } catch (e) {console.log(e); 
       }
     },
@@ -112,8 +111,7 @@ export default {
         };
         let rightNow = new Date();
         this.responseObj = JSON.parse(await fetch("https://api.apilayer.com/exchangerates_data/fluctuation?start_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()}-${rightNow.getDate()}`+"&end_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()+1}-${rightNow.getDate()}`+"&base="+`${this.fromCurrency}`, requestOptions)
-        .then(response => response.text()))
-        console.log(this.responseObj)} catch (e) {console.log(e); }
+        .then(response => response.text()))} catch (e) {console.log(e); }
   
       }  
   },
@@ -129,8 +127,7 @@ export default {
         };
         let rightNow = new Date();
         this.responseObj = JSON.parse(await fetch("https://api.apilayer.com/exchangerates_data/fluctuation?start_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()}-${rightNow.getDate()}`+"&end_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()+1}-${rightNow.getDate()}`+"&base="+`${this.fromCurrency}`, requestOptions)
-        .then(response => response.text()))
-        console.log(this.responseObj)} catch (e) {console.log(e); }
+        .then(response => response.text()))} catch (e) {console.log(e); }
       }
 };
 </script>

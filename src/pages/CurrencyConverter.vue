@@ -20,8 +20,8 @@
             <v-spacer></v-spacer>
           </v-row>
           <v-row justify="center">
-            <v-col class="flex-grow-0">
-              <div class="text-h5" style="width:20rem; min-height: 3rem; border: 2px solid #1976d2; display: flex; justify-content: center; align-items: center;">{{convertationResult}}</div>
+            <v-col class="flex-grow-0" >
+              <div class="text-h5" style="width:20rem; min-height: 3rem; border: 2px solid darkgray; display: flex; justify-content: center; align-items: center;">{{convertationResult}}</div>
             </v-col>
           </v-row>
         </v-container>
@@ -37,7 +37,7 @@ export default {
       amount:"",
       fromCurrency:"RUB",
       toCurrency:"USD",
-      convertationResult:""
+      convertationResult:0
     }
   },
   methods:{
@@ -56,7 +56,7 @@ export default {
         .then(response => response.text())
         .then(result => {console.log(result);this.convertationResult = JSON.parse(result).result;})
         .catch(error => console.log('error', error));
-      }
+      },
   }
 };
 </script>
