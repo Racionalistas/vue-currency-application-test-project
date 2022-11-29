@@ -15,7 +15,7 @@ Page two: Page with current exchange rates. On this page, the user should see "f
 ### Versions
 The Russian version is stable, the English version will be released in the following update.
 
-## Difficulties
+### Difficulties
 Every step was very difficult to me, from rerendering issues to setting Vue compatibility with frameworks and receiving data from open currency API. 
 
 ## Project setup
