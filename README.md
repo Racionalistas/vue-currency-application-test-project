@@ -1,7 +1,7 @@
 # currency-application
 
 ## Project description
-The uploaded site: http://z99589w6.beget.tech/
+The uploaded site (done in 4 days): http://z99589w6.beget.tech/
 
 ### Motivation
 I had to realize the project as a test task for a vacancy. 
@@ -16,7 +16,7 @@ Page two: Page with current exchange rates. On this page, the user should see "f
 The Russian version is stable, the English version will be released in the following update.
 
 ### Difficulties
-Every step was very difficult to me, from rerendering issues to setting Vue compatibility with frameworks and receiving data from open currency API. 
+Every step was very difficult to me, from rerendering issues to setting Vue compatibility with frameworks and receiving data from open currency API. Besides, haven't worked with Vuetify framework before.
 
 ## Project setup
 ```
