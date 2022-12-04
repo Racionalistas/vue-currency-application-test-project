@@ -23,34 +23,11 @@
       <currency-selector abbreviation="USD" style="flex:0 0 12.5rem;" @valuechange="doUpdate($event)"></currency-selector>  
     </v-layout>
     <v-row style="gap:20px" justify="center">
-      <v-col v-if="fromCurrency!=toCurrencies[0]" style="flex-grow:0">
-        <info-card  
+      <info-card v-for="item in toCurrencies" :key="item"
         :from-currency="fromCurrency" 
-        :to-currency="toCurrencies[0]"
+        :to-currency="item"
         :response-obj="responseObj">
-        </info-card>
-      </v-col>
-      <v-col style="flex-grow:0" v-if="fromCurrency!=toCurrencies[1]">
-        <info-card 
-        :from-currency="fromCurrency" 
-        :to-currency="toCurrencies[1]"
-        :response-obj="responseObj">
-        </info-card>
-      </v-col>
-      <v-col style="flex-grow:0" v-if="fromCurrency!=toCurrencies[2]">
-        <info-card 
-        :from-currency="fromCurrency" 
-        :to-currency="toCurrencies[2]"
-        :response-obj="responseObj">
-        </info-card>
-      </v-col>
-      <v-col style="flex-grow:0" v-if="fromCurrency!=toCurrencies[3]">
-        <info-card 
-        :from-currency="fromCurrency" 
-        :to-currency="toCurrencies[3]"
-        :response-obj="responseObj">
-        </info-card>
-      </v-col>
+       </info-card>
     </v-row>
   </v-container>
 </template>
@@ -64,7 +41,6 @@ export default {
   data() {
     return {
       fromCurrency:"USD",
-      toCurrencies:["RUB","EUR","USD","GBP"],
       responseObj: {rates:{USD:{change:0, change_pct:0,end_rate:0},
                            RUB:{change:0, change_pct:0,end_rate:0},
                            GBP:{change:0, change_pct:0,end_rate:0},
@@ -128,6 +104,9 @@ export default {
         let rightNow = new Date();
         this.responseObj = JSON.parse(await fetch("https://api.apilayer.com/exchangerates_data/fluctuation?start_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()}-${rightNow.getDate()}`+"&end_date="+`${rightNow.getFullYear()}-${rightNow.getMonth()+1}-${rightNow.getDate()}`+"&base="+`${this.fromCurrency}`, requestOptions)
         .then(response => response.text()))} catch (e) {console.log(e); }
-      }
+      },
+    computed: {
+      toCurrencies() {return ["RUB","EUR","USD","GBP"].filter(el => this.fromCurrency!=el)}
+    }
 };
 </script>
